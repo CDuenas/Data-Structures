@@ -68,17 +68,6 @@ class LinkedList:
         self.head = self.head.next_node
         return head_value 
 
-    def remove_tail(self):
-        if not self.tail:
-            return None
-
-        if self.head is self.tail:
-            self.head = None
-            self.tail = None
-
-        tail_value = self.tail
-        self.tail = self.tail.next_node
-        return tail_value
 
     def __str__(self):
         output = ''
@@ -151,11 +140,15 @@ class Stack:
         return self.size
 
     def push(self, value):
-        self.storage.add_to_tail(value)
+        # add an element to the front of our array
         self.size += 1
+        self.storage.add_to_head(value)
 
     def pop(self):
-        if self.__len__():
-            popping = self.storage.remove_tail()
-            self.size -= 1
-            return popping
+        # check if empty
+        if self.size == 0:
+            return None
+        # remove the first element in storage
+        self.size -= 1
+        node = self.storage.remove_head()
+        return node

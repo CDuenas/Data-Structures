@@ -70,17 +70,6 @@ class LinkedList:
         self.head = self.head.next_node
         return head_value 
 
-    def remove_tail(self):
-        if not self.tail:
-            return None
-
-        if self.head is self.tail:
-            self.head = None
-            self.tail = None
-
-        tail_value = self.tail
-        self.tail = self.tail.next_node
-        return tail_value
 
     def __str__(self):
         output = ''
