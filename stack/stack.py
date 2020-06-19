@@ -80,6 +80,13 @@ class LinkedList:
         self.tail = self.tail.next_node
         return tail_value
 
+    def __str__(self):
+        output = ''
+        current_node = self.head #create a tracker node variable
+        while current_node is not None: #loop until its NONE
+            output += f'{current_node.value} -> '
+            current_node = current_node.next_node #update the tracker node to the next node
+
 
     def contains(self, value):
         if self.head is None:
